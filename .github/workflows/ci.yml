@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Typecheck & Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+
+  pr-conventions:
+    name: PR & Branch Conventions
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR title and branch name
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          title_regex='^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\([a-z0-9-]+\))?: [a-z].+ CVC-[0-9]+$'
+          branch_regex='^(feat|fix|docs|chore|refactor|style)/CVC-[0-9]+-[a-z0-9-]+$'
+
+          if ! echo "$PR_TITLE" | grep -Eq "$title_regex"; then
+            echo "ERROR: PR title must match '<type>(<scope>): <english lowercase description> CVC-<N>'"
+            echo "Got: $PR_TITLE"
+            exit 1
+          fi
+
+          if ! echo "$HEAD_REF" | grep -Eq "$branch_regex"; then
+            echo "ERROR: Branch name must match '<type>/CVC-<N>-<kebab-slug>'"
+            echo "Got: $HEAD_REF"
+            exit 1
+          fi
