@@ -46,7 +46,7 @@ Instrucciones base para agentes de IA que trabajan en **Card Value Collection**.
 
 - **Jira:** proyecto `CVC` en `https://facundodlf.atlassian.net` (tablero Kanban).
 - **GitHub:** organización `card-value-org` (`Card-Value-Collection`).
-- **Figma Free:** diseño de pantallas y flujos UI/UX; integrado con agentes mediante el plugin oficial de Figma.
+- **Figma:** diseño maestro `https://www.figma.com/design/LFddOklRxz3cTqxAf9odEM` (páginas `01 · Design System`, `02 · Desktop App (1440px)`, `03 · Mobile App (390px)`).
 - **Documentación:** consultar fuentes oficiales (`vuejs.org`, `vitejs.dev`, `v3.tailwindcss.com`, `typescriptlang.org`) o Context7 MCP cuando esté disponible en la sesión.
 
 ## Basic Project Commands
@@ -72,7 +72,9 @@ N/A — todavía no hay test runner configurado; la verificación actual consist
 - **Vue 3 Composition API:** usar siempre `<script setup lang="ts">` en todos los SFCs; nunca Options API.
 - **Macros tipadas:** declarar `defineProps<...>()`, `defineEmits<...>()` y `defineModel<...>()` usando tipos de TypeScript.
 - **TypeScript estricto:** `strict`, `noUnusedLocals` y `noUnusedParameters` activos en `tsconfig.json`. Centralizar tipos compartidos en `src/types/index.ts`; no usar `any`.
-- **Estilos con tokens Tailwind:** usar clases de Tailwind apoyadas en los tokens de `tailwind.config.js` (`brand`, `ink`, `line`, `surface`, `positive`, `negative`, `grade.psa`, `grade.bgs`). No hardcodear valores hexadecimales en componentes; si hace falta un color nuevo, registrarlo como token.
+- **Estilos con tokens Tailwind y Dark Mode:** usar variables CSS (`--color-*` definidas en `01 · Design System` de Figma) mapeadas a tokens de `tailwind.config.js` para alternar **Light** (`#FFFFFF`, `#F6F3EC`, `#00004A`, `#8A0A0A`, `#0B0B0E`) y **Dark Gold Edition** (`#0B0B0E`, `#14161F`, `#F6F3EC`, `#C9A24D`, `#8A0A0A`, `#E04848` texto) sin duplicar componentes. Bordes rectos `2px`, tipografías `Playfair Display` + `Plus Jakarta Sans` con `tabular-nums` en precios. No hardcodear colores hexadecimales en componentes.
+- **Idiomas (i18n) y alcance:** **Español** por defecto + **English** + **Français**. Nicho actual: **solo Fútbol (Soccer)**.
+- **Estado global y ciclo de vida:** usar **Pinia** para estado compartido (filtros, moneda, tema Light/Dark, idioma, colección), evitando estado suelto en módulos y cuidando reactividad y ciclo de vida.
 - **Responsive mobile-first:** diseñar base móvil y escalar con breakpoints `md:` / `lg:`.
 - **Accesibilidad básica:** incluir `alt` descriptivo en imágenes, `aria-label` en controles sin texto visible y etiquetas HTML semánticas (`main`, `section`, `article`, `nav`).
 - **Modularización:** componentes pequeños y de una sola responsabilidad. Antes de crear uno nuevo, verificar si un componente de `src/components/base/` resuelve la necesidad.

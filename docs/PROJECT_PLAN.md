@@ -6,12 +6,15 @@ Documento vivo de memoria y decisiones del proyecto. Debe consultarse antes de p
 
 ## 1. Visión del producto
 
-Construir la mejor aplicación web para coleccionistas de cartas, tomando las mejores funcionalidades, herramientas, gráficos y resultados de aplicaciones web que ya existen en el mercado.
+Construir la aplicación web de referencia para coleccionistas de cartas de **Fútbol (Soccer)**, tomando las mejores funcionalidades, herramientas, gráficos y resultados de plataformas existentes.
 
-- **Diferencial:** UI/UX propia, estilos, paleta de colores, diseño y múltiples formatos de visualización y salida (outputs) de la información.
-- **Regla sobre gradeo:** las páginas de empresas de gradeo se utilizan **únicamente como fuente de información**; **NO** vamos a construir una aplicación de gradeo.
-- **Base de partida:** maqueta frontend estática inspirada en *Card Ladder* (Vue 3 + Vite + TypeScript + Tailwind CSS v3).
-- **Análisis de referencias:** pendiente — el PM/TL entregará una lista de prompts y páginas web existentes para investigar sus funcionalidades y definir el alcance del producto.
+- **Jerarquía de features:**
+  1. **Estrella (#1):** Buscador Universal de carta específica (nombre, valores, ID/certificado o **foto/imagen con Top 3 coincidencias**).
+  2. **Principal (#2):** Mercado, cotizaciones y estadísticas con filtros avanzados (`MERCADO`).
+  3. **Core / Retención:** Ficha de carta (ventas multi-fuente, Pop Report), Mi Colección (cartas + sellado, ROI), Checklists oficiales (Panini/Topps), Radar/Watchlist y Comparador.
+- **Diferencial:** UI/UX limpia estilo galería europea (bordes rectos `2px`, corona de 3 puntas redondas), **Light Mode** (`#FFFFFF`, `#F6F3EC`, `#00004A`, `#8A0A0A`) y **Dark Mode Gold Edition** (`#0B0B0E`, `#C9A24D`), i18n (**ES** default / **EN** / **FR**), y múltiples formatos de salida.
+- **Regla sobre gradeo:** las páginas de empresas de gradeo (PSA, BGS, CGC) se utilizan **únicamente como fuente de información**; **NO** vamos a construir una aplicación de gradeo.
+- **Diseño maestro (Figma):** `https://www.figma.com/design/LFddOklRxz3cTqxAf9odEM` (`01 · Design System`, `02 · Desktop App (1440px)`, `03 · Mobile App (390px)`).
 
 ---
 
@@ -72,8 +75,13 @@ Construir la mejor aplicación web para coleccionistas de cartas, tomando las me
 
 - **Confirmación obligatoria:** no ejecutar ninguna acción (crear tickets, modificar Jira o GitHub, editar/crear código o archivos) sin confirmación previa explícita del PM/TL.
 - **Planificar antes de ticketear:** primero se define y acuerda el plan; prohibido crear tickets "por las dudas".
-- **Adecuación pedagógica:** cada ticket debe tener sentido real para el nivel de Franco y dejarle un aprendizaje concreto.
-- **Formato de tickets:** todos los tickets siguen la plantilla inmutable ASDD FE (`## ToDo`, `## AC`, `## Links to Figma`, `## Notes & Obvs`) definida en `ai-workflow/templates/ticket.fe.md`.
+- **Adecuación pedagógica:** tickets claros, **no ambiguos**, breves y simples (sin bloques largos de texto), con capturas adjuntas cuando ayuden.
+- **Identificación y vínculo FE ↔ BE:**
+  - Todo ticket lleva prefijo en título y label en Jira: `[CONFIG]`, `[FE]`, `[BE]` o `[DB]`.
+  - Por cada ticket `[FE]` se crea su ticket `[BE]` relacionado y vinculado en Backlog (además de `BE-0` y `DB-0` para setup inicial de backend/DB).
+  - Cada ticket indica explícitamente si tiene **dependencia de orden** (`Bloqueado por ...`) o si es **paralelizable**.
+- **Rama obligatoria en el ticket:** cada ticket de código incluye en `## ToDo` la instrucción explícita de crear una nueva rama desde `main` actualizada con el **nombre exacto de la rama** (para que el agente del dev advierta si intenta trabajar en `main`).
+- **Formato de tickets:** todos los tickets siguen la plantilla inmutable ASDD (`## ToDo / ## AC / ## Links to Figma / ## Notes & Obvs` para FE/CONFIG; `## ToDo / ## AC / ## Contracts & Specs / ## Notes & Obvs` para BE/DB). *(Otros tipos como Bugs se definirán más adelante).*
 - **Mantenimiento de la memoria (SSOT):** toda decisión de producto o proceso se registra en la sección *Registro de decisiones* de este archivo; toda convención técnica se agrega en `AGENTS.md` (ampliándolo sin descartar lo existente y sin duplicar reglas).
 
 ---
@@ -88,11 +96,13 @@ Construir la mejor aplicación web para coleccionistas de cartas, tomando las me
 - **2026-11-22:** Reglas permanentes del agente en `AGENTS.md`: ASDD automático y obligatorio, respuestas claras y breves, ante dudas consultar (proponer, nunca suponer), comandos solo si un humano los solicita o aprueba, y verificación de `CHANGELOG.md` + `README.md` después de cada commit.
 - **2026-11-22:** Se fijan convenciones de entorno y GitHub: Node.js `22.22.2` (`.nvmrc`), **Squash and merge** exclusivo, commits y títulos de PR en **inglés** con formato `<type>(<scope>): <description> CVC-<N>`, CI con GitHub Actions, **Figma Free** en el stack, y ambos miembros como Owners con bypass en `Protect main`.
 
+- **2026-11-22:** Se aprueban el diseño maestro en Figma (`Light` + `Dark Gold Edition`, corona 3 puntas, i18n `ES/EN/FR`, solo Fútbol, jerarquía #1 Buscador Universal / #2 Mercado), la regla de tickets `[CONFIG]` / `[FE]` / `[BE]` / `[DB]` con espejo `[BE]` vinculado por cada `[FE]` (`BE-0` / `DB-0` futuros), y la obligación de indicar rama exacta y dependencias en cada ticket.
+
 ---
 
 ## 8. Pendientes próximos
 
 - [ ] Conectar la organización `card-value-org` en Jira → *GitHub for Atlassian* (la app ya está instalada en Jira; falta ejecutar *Connect a GitHub organization*).
-- [ ] Recibir y analizar la lista de prompts y páginas web de referencia para definir funcionalidades, gráficos, herramientas y outputs de nuestra app.
-- [ ] Definir los 1 a 3 tickets de la **Fase 0 (Setup inicial)**.
+- [ ] Crear en Jira el ticket inicial `[CONFIG]` para que Franco levante la app en `localhost:5173` sobre `main`.
+- [ ] Cargar en Backlog los primeros tickets `[FE]` (refactor librería de componentes, variables Light/Dark, Pinia) junto con sus tickets `[BE]` espejo vinculados.
 - [ ] Confirmar qué asistente de IA usa Franco en su máquina para evaluar si necesita un archivo puntero corto (por ejemplo `CLAUDE.md` o `.cursor/rules/`) que redirija a `AGENTS.md`.
