@@ -29,14 +29,25 @@ Construir la aplicación web de referencia para coleccionistas de cartas de **F�
 
 ---
 
-## 3. Fases del proyecto y gates
+## 3. Fases, Bloques y Totalizado
 
-| Fase | Alcance | Criterio para avanzar (Gate) | Estado |
-| :--- | :--- | :--- | :--- |
-| **Fase 0 — Setup inicial** | 1 a 3 tickets exclusivos para instalar herramientas/dependencias básicas y lograr correr la app en `localhost` tal como está hoy. | Franco levanta y corre la app en su máquina sin errores. | **Actual (tickets por definir)** |
-| **Fase 1 — Frontend + UI/UX** | Tickets necesarios siguiendo orden de layout, modularización por componentes y maquetado escalable, aplicando buenas prácticas y ASDD. | El PM/TL está 100% conforme con el frontend y la UI/UX. | Pendiente |
-| **Fase 2 — Backend** | Diseño e implementación de la API necesaria para darle vida a la aplicación. | Definido al cerrar la Fase 1. | Pendiente |
-| **Fase 3 — Infraestructura y DB** | Base de datos (Supabase o similar), hosting, dominios, etc. (en conjunto o después del backend). | Definido al cerrar la Fase 1 / junto con Fase 2. | Pendiente |
+| Fase | Bloque (Épica en Jira) | Label | Alcance / Tickets | Estado |
+| :--- | :--- | :--- | :--- | :--- |
+| **Fase 0 · Setup Inicial** | **Bloque 0.1 · Entorno Local** | `CONFIG` `bloque-0-1` | `CVC-1`: Levantar app en `main` *(1 `[CONFIG]`)* | **Actual (`CVC-1` en `To Do`)** |
+| **Fase 1 · Frontend & UI/UX** | **Bloque 1.1 · Cimientos & Diseño Base** | `FE` `bloque-1-1` | **6 `[FE]`:** Tokens Light/Dark + Fuentes, Pinia + Router, i18n (`ES/EN/FR`), Logo Corona + `Base*`, Catálogo mock Fútbol, `AppTopNav` + `Pulso 24h` | Backlog |
+| **Fase 1 · Frontend & UI/UX** | **Bloque 1.2 · Core de Producto** | `FE` `bloque-1-2` | **9 `[FE]`:** Inicio Hero+Vitrina, Buscador Universal, Búsqueda Foto Top 3, Mercado Filtros/Sparklines, Mercado Lista/Grilla, Detalle Ficha+Gráfico, Detalle Ventas/Pop, Mi Colección KPIs, Mi Colección Modal | Pendiente |
+| **Fase 1 · Frontend & UI/UX** | **Bloque 1.3 · Retención & Responsive** | `FE` `bloque-1-3` | **4 `[FE]`:** Sets & Checklists, Watchlist & Radar, Comparador, Mobile `390px` & QA | Pendiente |
+| **Fase 2 · Backend & DB** | **Bloque 2.1 · Infraestructura API & DB** | `DB` / `BE` `bloque-2-1` | **3 tickets:** `DB-0` (Supabase Postgres), `BE-0` (API Node + TS), Auth/Login | Backlog (`DB-0`, `BE-0`) |
+| **Fase 2 · Backend & DB** | **Bloque 2.2 · API Base & Catálogo** | `BE` `bloque-2-2` | **3 `[BE]` espejo de `1.1`:** Preferencias usuario, Catálogo & búsqueda Fútbol, Pulso 24h | Backlog |
+| **Fase 2 · Backend & DB** | **Bloque 2.3 · API Core & Colección** | `BE` `bloque-2-3` | **6 `[BE]` espejo de `1.2`:** Vitrina/ventas, Cert lookup, Visual Search IA, Historial precios, Agregador ventas/Pop, CRUD Colección | Pendiente |
+| **Fase 2 · Backend & DB** | **Bloque 2.4 · API Retención** | `BE` `bloque-2-4` | **2 `[BE]` espejo de `1.3`:** Checklists oficiales Panini/Topps, Alertas Radar & subastas | Pendiente |
+| **Fase 3 · Diferenciales & Prod.** | **Bloque 3.1 · Vitrinas & Outputs** | `FE` / `BE` `bloque-3-1` | **4 tickets (`2 FE` + `2 BE`):** Showcase público por URL, Exportación PDF catálogo / CSV | Pendiente |
+| **Fase 3 · Diferenciales & Prod.** | **Bloque 3.2 · Herramientas & P2P** | `FE` / `BE` `bloque-3-2` | **4 tickets (`2 FE` + `2 BE`):** Escáner UPC sellado por cámara, Mercado / Trade P2P | Pendiente |
+| **Fase 3 · Diferenciales & Prod.** | **Bloque 3.3 · Calidad & Deploy** | `CONFIG` `bloque-3-3` | **3 `[CONFIG]`:** Suite de tests (Vitest + API), Hosting producción, Dominio propio & monitoreo | Pendiente |
+
+- **Totalizado planificado:** **4 Fases · 11 Bloques · 45 Tickets** (`23 FE` · `17 BE` · `4 CONFIG` · `1 DB`).
+- **Nomenclatura en Jira:** Épicas `[FX.BY] Nombre` · Tareas `[FX.BY.Z][ÁREA] Título`.
+- **Versionado SemVer:** `package.json` (`0.1.0` actual) + `CHANGELOG.md`, automatizado por hito mediante `.github/workflows/release.yml` (`0.2.0` fin F1.B1, `0.3.0` fin F1.B2, `0.4.0` fin F1.B3, `0.5.0` fin Fase 2, `1.0.0` fin Fase 3).
 
 ---
 
@@ -76,11 +87,13 @@ Construir la aplicación web de referencia para coleccionistas de cartas de **F�
 - **Confirmación obligatoria:** no ejecutar ninguna acción (crear tickets, modificar Jira o GitHub, editar/crear código o archivos) sin confirmación previa explícita del PM/TL.
 - **Planificar antes de ticketear:** primero se define y acuerda el plan; prohibido crear tickets "por las dudas".
 - **Adecuación pedagógica:** tickets claros, **no ambiguos**, breves y simples (sin bloques largos de texto), con capturas adjuntas cuando ayuden.
-- **Identificación y vínculo FE ↔ BE:**
-  - Todo ticket lleva prefijo en título y label en Jira: `[CONFIG]`, `[FE]`, `[BE]` o `[DB]`.
+- **Identificación y vínculo FE ↔ BE ↔ TEST:**
+  - Todo ticket lleva prefijo en título y label en Jira: `[CONFIG]`, `[FE]`, `[BE]`, `[DB]` o `[TEST]`.
   - Por cada ticket `[FE]` se crea su ticket `[BE]` relacionado y vinculado en Backlog (además de `BE-0` y `DB-0` para setup inicial de backend/DB).
+  - **Cobertura de Unit Tests (`[TEST]`):** al finalizar la implementación de las funcionalidades, crear los tickets de **Unit Tests** correspondientes vinculados a cada ticket `[FE]` (Vitest) y `[BE]` (tests de endpoints/servicios) que aplique, garantizando un flujo completo de testing en todo el código.
   - Cada ticket indica explícitamente si tiene **dependencia de orden** (`Bloqueado por ...`) o si es **paralelizable**.
 - **Rama obligatoria en el ticket:** cada ticket de código incluye en `## ToDo` la instrucción explícita de crear una nueva rama desde `main` actualizada con el **nombre exacto de la rama** (para que el agente del dev advierta si intenta trabajar en `main`).
+- **Definition of Done (DoD) obligatorio:** todo ticket incluye una sección explícita de **Definition of Done** para que el dev sepa exactamente qué debe lograr para darlo por terminado (en archivos ASDD vive como `### Definition of Done` dentro de `## Notes & Obvs` para preservar los 4 headings principales inmutables).
 - **Formato de tickets:** todos los tickets siguen la plantilla inmutable ASDD (`## ToDo / ## AC / ## Links to Figma / ## Notes & Obvs` para FE/CONFIG; `## ToDo / ## AC / ## Contracts & Specs / ## Notes & Obvs` para BE/DB). *(Otros tipos como Bugs se definirán más adelante).*
 - **Mantenimiento de la memoria (SSOT):** toda decisión de producto o proceso se registra en la sección *Registro de decisiones* de este archivo; toda convención técnica se agrega en `AGENTS.md` (ampliándolo sin descartar lo existente y sin duplicar reglas).
 
@@ -97,12 +110,14 @@ Construir la aplicación web de referencia para coleccionistas de cartas de **F�
 - **2026-11-22:** Se fijan convenciones de entorno y GitHub: Node.js `22.22.2` (`.nvmrc`), **Squash and merge** exclusivo, commits y títulos de PR en **inglés** con formato `<type>(<scope>): <description> CVC-<N>`, CI con GitHub Actions, **Figma Free** en el stack, y ambos miembros como Owners con bypass en `Protect main`.
 
 - **2026-11-22:** Se aprueban el diseño maestro en Figma (`Light` + `Dark Gold Edition`, corona 3 puntas, i18n `ES/EN/FR`, solo Fútbol, jerarquía #1 Buscador Universal / #2 Mercado), la regla de tickets `[CONFIG]` / `[FE]` / `[BE]` / `[DB]` con espejo `[BE]` vinculado por cada `[FE]` (`BE-0` / `DB-0` futuros), y la obligación de indicar rama exacta y dependencias en cada ticket.
+- **2026-11-22:** Se define incluir tickets **`[TEST]` de Unit Tests** vinculados a los tickets `[FE]` y `[BE]` correspondientes para asegurar cobertura de pruebas en toda la aplicación.
 
 ---
 
 ## 8. Pendientes próximos
 
 - [ ] Conectar la organización `card-value-org` en Jira → *GitHub for Atlassian* (la app ya está instalada en Jira; falta ejecutar *Connect a GitHub organization*).
-- [ ] Crear en Jira el ticket inicial `[CONFIG]` para que Franco levante la app en `localhost:5173` sobre `main`.
+- [ ] Crear en Jira el ticket inicial `[CONFIG]` *(ya creado: `CVC-1` en `To Do`)* y cargar los bloques restantes (`1.2`, `1.3`, etc.) en Backlog.
+- [ ] Al finalizar las funcionalidades, crear y ejecutar los tickets **`[TEST]` de Unit Tests** vinculados a los tickets `[FE]` y `[BE]` correspondientes (Vitest en FE + tests de API en BE).
 - [ ] Cargar en Backlog los primeros tickets `[FE]` (refactor librería de componentes, variables Light/Dark, Pinia) junto con sus tickets `[BE]` espejo vinculados.
 - [ ] Confirmar qué asistente de IA usa Franco en su máquina para evaluar si necesita un archivo puntero corto (por ejemplo `CLAUDE.md` o `.cursor/rules/`) que redirija a `AGENTS.md`.
