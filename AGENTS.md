@@ -65,7 +65,7 @@ Todavía no hay scripts de linter, formateador ni suite de tests configurados. L
 
 ## Testing
 
-N/A — todavía no hay test runner configurado; la verificación actual consiste en `npm run typecheck`, `npm run build` y prueba visual manual en el navegador. Se incorporará Vitest en un ticket futuro.
+N/A — todavía no hay test runner configurado; la verificación actual consiste en `npm run typecheck`, `npm run build` y prueba visual manual en el navegador. Se incorporará Vitest (y tickets `[TEST]` de Unit Tests vinculados a `[FE]` y `[BE]`) en etapas posteriores.
 
 ## Code Conventions
 
