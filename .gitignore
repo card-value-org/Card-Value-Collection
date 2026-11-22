@@ -1,4 +1,5 @@
 /asdd-ai-workflow/
+/ai-workflow/
 node_modules
 dist
 .env*.local
