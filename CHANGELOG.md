@@ -10,6 +10,7 @@
 
 ### Changed
 - Se excluyó `ai-workflow/` (metodología ASDD) del control de versiones.
+- Actualizados `AGENTS.md` y `docs/PROJECT_PLAN.md` con el diseño maestro de Figma (`Light` + `Dark Gold Edition`), alcance inicial solo Fútbol, i18n (`ES/EN/FR`), jerarquía de features y reglas de tickets `[CONFIG]` / `[FE]` / `[BE]` / `[DB]`.
 
 ## 2026-11-08
 
