@@ -2,8 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tokens de color del Design System (Figma · 01 · Design System · matriz Light ↔ Dark).
+   La clase .dark en <html> activa la Dark Gold Edition. Fuera de @layer para que
+   Tailwind no elimine .dark mientras ningún archivo use esa clase. */
+:root {
+  --color-bg-canvas: #ffffff;
+  --color-bg-surface: #f6f3ec;
+  --color-bg-subtle: #f3f4f8;
+  --color-ink-primary: #0b0b0e;
+  --color-ink-heading: #00004a;
+  --color-ink-muted: #646975;
+  --color-brand-primary: #00004a;
+  --color-brand-crimson: #8a0a0a;
+  --color-brand-crimson-text: #8a0a0a;
+  --color-brand-crimson-soft: #f9ecec;
+  --color-border-hairline: #e5e1d8;
+  --color-positive: #15803d;
+}
+
+.dark {
+  --color-bg-canvas: #0b0b0e;
+  --color-bg-surface: #14161f;
+  --color-bg-subtle: #1c1f2b;
+  --color-ink-primary: #f6f3ec;
+  --color-ink-heading: #f6f3ec;
+  --color-ink-muted: #9499a8;
+  --color-brand-primary: #c9a24d;
+  --color-brand-crimson: #8a0a0a;
+  --color-brand-crimson-text: #e04848;
+  --color-brand-crimson-soft: #2e1216;
+  --color-border-hairline: #262936;
+  --color-positive: #4ade80;
+}
+
 @layer base {
   body {
-    @apply bg-white font-sans text-ink antialiased;
+    @apply bg-canvas font-sans text-ink antialiased;
   }
 }
