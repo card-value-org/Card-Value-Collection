@@ -3,6 +3,15 @@
 ## 2026-11-23
 
 ### Added
+- Tipos `Competition`, `SaleSource`, `Liquidity` y `Sale`, y campos `competition`, `source`, `liquidity`, `sparkline`, `recentSales` e `isSealed` en `TradingCard` (CVC-9).
+- Imagen genérica `public/cards/placeholder-card.svg` para cartas sin foto (CVC-9).
+
+### Changed
+- Catálogo mock migrado a 8 ítems de Fútbol (Messi, Yamal, Maradona, Lautaro, Zidane, Bellingham y una Hobby Box sellada) según Figma (CVC-9).
+- Categorías reemplazadas por competiciones de Fútbol: Mundial / FIFA, Champions League, Serie A y LaLiga (CVC-9).
+
+### Removed
+- Cartas e imágenes de Pokémon y F1 (CVC-9).
 - Tokens de color `--color-*` del Design System de Figma en `src/style.css` para `Light` y `Dark Gold Edition` (se activa con la clase `.dark` en `<html>`), mapeados en `tailwind.config.js` con `darkMode: 'class'` (CVC-5).
 
 ### Changed
