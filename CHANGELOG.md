@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-23
+
+### Added
+- Tokens de color `--color-*` del Design System de Figma en `src/style.css` para `Light` y `Dark Gold Edition` (se activa con la clase `.dark` en `<html>`), mapeados en `tailwind.config.js` con `darkMode: 'class'` (CVC-5).
+
+### Changed
+- Fuentes `Plus Jakarta Sans` (`font-sans`) y `Playfair Display` (`font-display`) reemplazan a Catamaran y Poppins (CVC-5).
+- Los colores previos de Tailwind (`brand`, `ink`, `line`, `negative`, `grade-*`) pasan a ser alias de los nuevos tokens hasta migrar los componentes (CVC-5).
+
 ## 2026-11-22
 
 ### Added
