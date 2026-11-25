@@ -1,30 +1,44 @@
+// color-mix permite usar opacidad (ej. bg-ink/40) con variables CSS en formato hex.
+const token = (name) =>
+  `color-mix(in srgb, var(--color-${name}) calc(<alpha-value> * 100%), transparent)`
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{vue,ts}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        brand: {
-          DEFAULT: '#33bf86',
-          dark: '#0f7a52',
-          soft: '#e6f8f0',
-        },
+        canvas: token('bg-canvas'),
+        surface: token('bg-surface'),
+        subtle: token('bg-subtle'),
         ink: {
-          DEFAULT: '#111111',
-          muted: '#6b6b6b',
+          DEFAULT: token('ink-primary'),
+          heading: token('ink-heading'),
+          muted: token('ink-muted'),
         },
-        line: '#e5e5e5',
-        surface: '#f1f1f1',
-        positive: '#33bf86',
-        negative: '#e5484d',
+        brand: {
+          DEFAULT: token('brand-primary'),
+          crimson: token('brand-crimson'),
+          'crimson-text': token('brand-crimson-text'),
+          'crimson-soft': token('brand-crimson-soft'),
+          // Alias legacy: los componentes actuales los usan hasta su migración (CVC-6 / CVC-8).
+          dark: token('ink-heading'),
+          soft: token('bg-subtle'),
+        },
+        hairline: token('border-hairline'),
+        positive: token('positive'),
+        // Alias legacy
+        line: token('border-hairline'),
+        negative: token('brand-crimson-text'),
         grade: {
-          psa: '#9b3fc7',
-          bgs: '#3b82d6',
+          psa: token('brand-crimson-text'),
+          bgs: token('ink-heading'),
         },
       },
       fontFamily: {
-        sans: ['Catamaran', 'system-ui', 'sans-serif'],
-        display: ['Poppins', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
       },
     },
   },
