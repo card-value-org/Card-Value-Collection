@@ -1,4 +1,5 @@
 import type { Component } from 'vue'
+import type { Messages } from '@/i18n/es'
 
 export interface NavItem {
   id: string
@@ -70,3 +71,12 @@ export interface TradingCard {
 export type BadgeTone = 'neutral' | 'psa' | 'bgs' | 'plain'
 export type ButtonVariant = 'primary' | 'secondary'
 export type ButtonSize = 'sm' | 'md' | 'lg'
+
+export type Locale = 'es' | 'en' | 'fr'
+
+/** Rutas con punto hacia cada texto del diccionario, ej. 'nav.market'. */
+type LeafPaths<T> = {
+  [K in keyof T & string]: T[K] extends string ? K : `${K}.${LeafPaths<T[K]>}`
+}[keyof T & string]
+
+export type MessageKey = LeafPaths<Messages>
