@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-26
+
+### Added
+- Store Pinia de tema y moneda con persistencia en localStorage (CVC-6).
+- Router con rutas placeholder para mercado, colección, checklists, radar, comparación y detalle de carta; la guía actual permanece en `/` (CVC-6).
+
 ## 2026-11-23
 
 ### Added
