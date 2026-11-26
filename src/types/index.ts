@@ -67,6 +67,6 @@ export interface TradingCard {
   isSealed: boolean
 }
 
-export type BadgeTone = 'neutral' | 'psa' | 'bgs' | 'plain'
-export type ButtonVariant = 'primary' | 'secondary'
+export type BadgeTone = 'neutral' | 'psa' | 'bgs' | 'positive' | 'plain'
+export type ButtonVariant = 'primary' | 'crimson' | 'outline' | 'secondary'
 export type ButtonSize = 'sm' | 'md' | 'lg'
