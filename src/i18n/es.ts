@@ -3,7 +3,7 @@ export const es = {
   nav: {
     home: 'Inicio',
     market: 'Mercado',
-    collection: 'Colección',
+    collection: 'Mi colección',
     checklists: 'Checklists',
     radar: 'Radar',
     compare: 'Comparar',
@@ -18,6 +18,23 @@ export const es = {
     save: 'Guardar',
     cancel: 'Cancelar',
     retry: 'Reintentar',
+    searchPhoto: 'Buscar · Foto',
+  },
+  topNav: {
+    mainNav: 'Navegación principal',
+    language: 'Idioma',
+    currency: 'Moneda',
+  },
+  theme: {
+    dark: 'Oscuro',
+    light: 'Claro',
+    toDark: 'Activar modo oscuro',
+    toLight: 'Activar modo claro',
+  },
+  ticker: {
+    title: 'Pulso 24h',
+    label: 'Pulso del mercado en las últimas 24 horas',
+    live: 'en vivo',
   },
   empty: {
     comingSoon: 'Esta sección estará disponible próximamente.',

@@ -3,10 +3,22 @@ import type { Messages } from '@/i18n/es'
 
 export interface NavItem {
   id: string
+  labelKey: MessageKey
+  to: string
+}
+
+export interface MarketPulseItem {
+  id: string
   label: string
-  icon: Component
-  href: string
-  isPro?: boolean
+  /** Precio en USD. */
+  price: number
+  /** Variación porcentual en 24 h. */
+  change: number
+}
+
+export interface LiveAuction {
+  house: string
+  endsIn: string
 }
 
 export type Competition = 'world-cup' | 'champions-league' | 'serie-a' | 'laliga'
@@ -68,8 +80,8 @@ export interface TradingCard {
   isSealed: boolean
 }
 
-export type BadgeTone = 'neutral' | 'psa' | 'bgs' | 'plain'
-export type ButtonVariant = 'primary' | 'secondary'
+export type BadgeTone = 'neutral' | 'psa' | 'bgs' | 'positive' | 'plain'
+export type ButtonVariant = 'primary' | 'crimson' | 'outline' | 'secondary'
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
 export type Locale = 'es' | 'en' | 'fr'

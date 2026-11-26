@@ -6,6 +6,22 @@
 - Store Pinia de tema y moneda con persistencia en localStorage (CVC-6).
 - Router con rutas placeholder para mercado, colección, checklists, radar, comparación y detalle de carta; la guía actual permanece en `/` (CVC-6).
 - Sistema de traducciones Español / English / Français: diccionarios en `src/i18n/`, composable tipado `useI18n` e idioma persistido en el store (default `es`). Las vistas placeholder ya usan las traducciones (CVC-7).
+- Componente `BaseEmptyState` con corona reutilizable en SVG y slot para CTA (CVC-8).
+- Variantes `crimson` y `outline` en `BaseButton` y tono `positive` en `BaseBadge`, según Figma (CVC-8).
+- `AppTopNav`: cinta tricolor, logo, tabs con ruta activa, botón de búsqueda (visual), selectores de moneda e idioma y toggle Light/Dark; en móvil las tabs pasan a una segunda fila con scroll (CVC-10).
+- `MarketPulseTicker`: barra PULSO 24H con datos mock en `src/data/marketPulse.ts` (CVC-10).
+- Tokens `ribbon-mid` y `ticker-*`, iguales en Light y Dark (CVC-10).
+
+### Removed
+- `AppSidebar` y `AppHeader`, reemplazados por `AppTopNav` y `MarketPulseTicker` (CVC-10).
+
+### Fixed
+- Sidebar y etiquetas PRO usan tokens de tema para mantener contraste legible en Dark Mode (CVC-8).
+
+### Changed
+- Logo de marca actualizado a corona de tres puntas redondeadas y wordmark CARD VALUE (CVC-8).
+- Componentes base ajustados a bordes de 2px, tokens de tema y cifras tabulares; incluye `BaseChip` según los criterios del ticket. `BaseBadge` pasa de borde a fondo suave como en Figma (CVC-8).
+- `BrandLogo` en una sola línea y con navegación sin recarga (`RouterLink`). La tab "Colección" pasa a "Mi colección", como en Figma (CVC-10).
 
 ## 2026-11-23
 

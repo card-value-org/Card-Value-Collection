@@ -28,6 +28,16 @@ export default {
         },
         hairline: token('border-hairline'),
         positive: token('positive'),
+        ribbon: {
+          mid: token('ribbon-mid'),
+        },
+        ticker: {
+          DEFAULT: token('ticker-bg'),
+          ink: token('ticker-ink'),
+          accent: token('ticker-accent'),
+          up: token('ticker-up'),
+          live: token('ticker-live'),
+        },
         // Alias legacy
         line: token('border-hairline'),
         negative: token('brand-crimson-text'),

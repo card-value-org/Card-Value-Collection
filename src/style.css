@@ -18,6 +18,14 @@
   --color-brand-crimson-soft: #f9ecec;
   --color-border-hairline: #e5e1d8;
   --color-positive: #15803d;
+
+  /* Iguales en Light y Dark (Figma · 01 Inicio): la cinta y el ticker no cambian con el tema. */
+  --color-ribbon-mid: #ffffff;
+  --color-ticker-bg: #0b0b0e;
+  --color-ticker-ink: #f6f3ec;
+  --color-ticker-accent: #c9a24d;
+  --color-ticker-up: #4ade80;
+  --color-ticker-live: #e04848;
 }
 
 .dark {

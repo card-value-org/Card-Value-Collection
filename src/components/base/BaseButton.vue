@@ -13,8 +13,11 @@ const props = withDefaults(
 )
 
 const variants: Record<ButtonVariant, string> = {
-  primary: 'bg-brand text-white hover:bg-brand-dark',
-  secondary: 'bg-surface text-ink hover:bg-line',
+  primary: 'border border-transparent bg-brand text-canvas hover:bg-brand/90',
+  // Crimson es igual en Light y Dark, por eso el texto blanco fijo mantiene el contraste.
+  crimson: 'border border-transparent bg-brand-crimson text-white hover:bg-brand-crimson/90',
+  outline: 'border border-brand bg-transparent text-brand hover:bg-subtle',
+  secondary: 'border border-line bg-surface text-ink hover:bg-subtle',
 }
 
 const sizes: Record<ButtonSize, string> = {
@@ -24,7 +27,7 @@ const sizes: Record<ButtonSize, string> = {
 }
 
 const classes = computed(() => [
-  'inline-flex items-center justify-center rounded-md font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand',
+  'inline-flex items-center justify-center rounded-sm font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand',
   variants[props.variant],
   sizes[props.size],
   props.block ? 'w-full' : '',
