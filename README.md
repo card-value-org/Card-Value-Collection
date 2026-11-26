@@ -7,6 +7,7 @@ Aplicación web para coleccionistas de cartas (guía de precios, seguimiento y v
 - **Vue 3** (Composition API + `<script setup lang="ts">`)
 - **Vite** + **TypeScript**
 - **Tailwind CSS v3**
+- **Pinia** para preferencias globales y **Vue Router** para navegación
 - **Lucide Icons** (`lucide-vue-next`)
 
 ## Requisitos
@@ -45,8 +46,11 @@ src/
 │   └── layout/         # Estructura general (header y sidebar)
 ├── composables/        # Lógica reactiva reutilizable
 ├── data/               # Datos mock temporales
+├── router/             # Rutas de la aplicación
+├── stores/             # Preferencias globales persistidas localmente
 ├── types/              # Interfaces y tipos TypeScript compartidos
-├── App.vue             # Vista principal
+├── views/              # Pantallas de la aplicación
+├── App.vue             # Shell con RouterView
 └── main.ts             # Punto de entrada
 docs/PROJECT_PLAN.md    # Plan, fases y decisiones del proyecto
 ```
