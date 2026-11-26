@@ -5,6 +5,7 @@
 ### Added
 - Store Pinia de tema y moneda con persistencia en localStorage (CVC-6).
 - Router con rutas placeholder para mercado, colección, checklists, radar, comparación y detalle de carta; la guía actual permanece en `/` (CVC-6).
+- Sistema de traducciones Español / English / Français: diccionarios en `src/i18n/`, composable tipado `useI18n` e idioma persistido en el store (default `es`). Las vistas placeholder ya usan las traducciones (CVC-7).
 
 ## 2026-11-23
 

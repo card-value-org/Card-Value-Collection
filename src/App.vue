@@ -9,6 +9,12 @@ watch(
   (theme) => document.documentElement.classList.toggle('dark', theme === 'dark'),
   { immediate: true },
 )
+
+watch(
+  () => preferences.locale,
+  (locale) => (document.documentElement.lang = locale),
+  { immediate: true },
+)
 </script>
 
 <template>

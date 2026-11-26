@@ -46,6 +46,7 @@ src/
 │   └── layout/         # Estructura general (header y sidebar)
 ├── composables/        # Lógica reactiva reutilizable
 ├── data/               # Datos mock temporales
+├── i18n/               # Diccionarios de traducción (es, en, fr)
 ├── router/             # Rutas de la aplicación
 ├── stores/             # Preferencias globales persistidas localmente
 ├── types/              # Interfaces y tipos TypeScript compartidos
