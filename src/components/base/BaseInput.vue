@@ -15,7 +15,7 @@ const model = defineModel<string>({ default: '' })
       v-model="model"
       :type="type ?? 'text'"
       :placeholder="placeholder"
-      class="w-full rounded border border-line px-4 py-3 text-base text-ink placeholder:text-ink-muted focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"
+      class="w-full rounded-sm border border-line bg-canvas px-4 py-3 text-base text-ink placeholder:text-ink-muted focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"
     />
   </label>
 </template>

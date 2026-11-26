@@ -16,7 +16,7 @@ defineEmits<{ close: [] }>()
   />
   <aside
     id="app-sidebar"
-    class="fixed inset-y-0 left-0 z-40 flex w-72 shrink-0 flex-col gap-4 overflow-y-auto border-r border-line bg-white px-5 py-3 transition-transform lg:sticky lg:top-0 lg:h-screen lg:translate-x-0"
+    class="fixed inset-y-0 left-0 z-40 flex w-72 shrink-0 flex-col gap-4 overflow-y-auto border-r border-line bg-canvas px-5 py-3 transition-transform lg:sticky lg:top-0 lg:h-screen lg:translate-x-0"
     :class="open ? 'translate-x-0' : '-translate-x-full'"
   >
     <BrandLogo />
@@ -34,7 +34,7 @@ defineEmits<{ close: [] }>()
             <span class="flex-1">{{ item.label }}</span>
             <span
               v-if="item.isPro"
-              class="rounded-sm bg-brand px-1.5 py-0.5 text-[10px] font-bold leading-none text-white"
+              class="rounded-sm bg-brand px-1.5 py-0.5 text-[10px] font-bold leading-none text-canvas"
             >
               PRO
             </span>
