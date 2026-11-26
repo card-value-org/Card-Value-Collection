@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { watch } from 'vue'
+import AppTopNav from '@/components/layout/AppTopNav.vue'
+import MarketPulseTicker from '@/components/layout/MarketPulseTicker.vue'
 import { usePreferencesStore } from '@/stores/usePreferencesStore'
 
 const preferences = usePreferencesStore()
@@ -18,5 +20,7 @@ watch(
 </script>
 
 <template>
+  <AppTopNav />
+  <MarketPulseTicker />
   <RouterView />
 </template>

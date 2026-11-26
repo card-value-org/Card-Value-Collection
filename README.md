@@ -43,7 +43,7 @@ src/
 ├── components/
 │   ├── base/           # Componentes UI genéricos reutilizables
 │   ├── cards/          # Componentes del catálogo y guía de precios
-│   └── layout/         # Estructura general (header y sidebar)
+│   └── layout/         # Estructura general (nav superior y ticker de mercado)
 ├── composables/        # Lógica reactiva reutilizable
 ├── data/               # Datos mock temporales
 ├── i18n/               # Diccionarios de traducción (es, en, fr)
