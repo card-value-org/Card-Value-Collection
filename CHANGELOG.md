@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-11-26
+
+### Added
+- Componente `BaseEmptyState` con corona reutilizable en SVG y slot para CTA (CVC-8).
+- Variantes `crimson` y `outline` en `BaseButton` y tono `positive` en `BaseBadge`, según Figma (CVC-8).
+
+### Changed
+- Logo de marca actualizado a corona de tres puntas redondeadas y wordmark CARD VALUE (CVC-8).
+- Componentes base ajustados a bordes de 2px, tokens de tema y cifras tabulares; incluye `BaseChip` según los criterios del ticket. `BaseBadge` pasa de borde a fondo suave como en Figma (CVC-8).
+
 ## 2026-11-23
 
 ### Added

@@ -18,6 +18,8 @@ const trendClasses = {
 <template>
   <div class="flex flex-col items-start leading-tight md:items-end">
     <span class="text-xs text-ink-muted md:text-ink">{{ label }}</span>
-    <span class="font-display text-base font-bold" :class="trendClasses[trend]">{{ value }}</span>
+    <span class="font-display text-base font-bold tabular-nums" :class="trendClasses[trend]">
+      {{ value }}
+    </span>
   </div>
 </template>

@@ -1,14 +1,15 @@
+<script setup lang="ts">
+import BaseCrownIcon from '@/components/base/BaseCrownIcon.vue'
+</script>
+
 <template>
-  <a href="#" class="inline-flex items-center gap-1 text-brand-dark" aria-label="Card Ladder, inicio">
-    <span
-      class="flex h-9 w-9 items-center justify-center rounded-full border-4 border-brand-dark font-display text-xs font-black"
-      aria-hidden="true"
-    >
-      C
+  <a href="/" class="inline-flex items-center gap-2 text-brand" aria-label="Card Value, inicio">
+    <span class="block h-9 w-9 shrink-0">
+      <BaseCrownIcon />
     </span>
-    <span class="flex flex-col font-display text-sm font-black uppercase leading-none tracking-tight">
+    <span class="flex flex-col font-display text-sm font-black uppercase leading-none tracking-tight text-ink-heading">
       <span>Card</span>
-      <span>Ladder</span>
+      <span>Value</span>
     </span>
   </a>
 </template>
